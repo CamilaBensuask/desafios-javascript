@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de medidas</title>
+    <style>
+        body {
+            font: 12pt Arial;
+        }
+        button {
+            font-size: 12pt;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor de Medidas</h1>
+    <button onclick="clicar()">
+        Converter
+    </button>
+
+    <section id="converter">
+        <p>Clique no botão acima para iniciar.</p>
+    </section>
+
+    <script>
+        function clicar() {
+            var dist = Number(window.prompt('Digite uma distância em metros(m)')) 
+            
+            var converter = document.getElementById('converter')
+
+            converter.innerHTML = `<h2>A distância de ${dist} metros, corresponde a...</h2>`
+
+            converter.innerHTML += `<p>${(dist/1000).toLocaleString('pt-BR')} quilômetros (Km)</p>`
+
+            converter.innerHTML += `<p>${(dist/100).toLocaleString('pt-BR')} hectômetros (Hm)</p>`
+
+            converter.innerHTML += `<p>${(dist/10).toLocaleString('pt-BR')} decâmetros (Dam)</p>`
+
+            converter.innerHTML += `<p>${(dist*10).toLocaleString('pt-BR')} decímetros (dm)</p>`
+
+            converter.innerHTML += `<p>${(dist*100).toLocaleString('pt-BR')} centímetros (cm)</p>`
+
+            converter.innerHTML += `<p>${(dist*1000).toLocaleString('pt-BR')} milímetros (mm)</p>`
+        }
+    </script>
+</body>
+</html>

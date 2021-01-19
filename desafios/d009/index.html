@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reajustar salário</title>
+    <style>
+        body {
+            font: 12pt Arial;
+        }
+        button {
+            font-size: 12pt;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Reajuste salarial</h1>
+
+    <button onclick="clicar()">
+        Reajustar Salário
+    </button>
+
+    <section id="resultado">
+        <p>Clique no botão acima para iniciar.</p>
+    </section>
+
+    <script>
+        function clicar() {
+            var nome = window.prompt('Qual é o nome do funcionário?')
+            var salAtual = Number(window.prompt(`Qual é o salário de ${nome}?`))
+            var porc = Number(window.prompt(`O salário de ${nome} vai ser reajustado em qual porcentagem?`))
+            var reajuste = (salAtual * porc) / 100
+            var novoSal = salAtual + reajuste
+
+            var res = document.getElementById('resultado')
+
+            res.innerHTML = `<h2>${nome} recebeu um aumento salarial!</h2>`
+
+            res.innerHTML += `<p>O salário atual era ${(salAtual.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}))}.</p>`
+
+            res.innerHTML += `<p>Com um aumento de ${porc}%, o salário vai aumentar ${(reajuste.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}))} no próximo mês.</p>`
+
+            res.innerHTML += `<p>E a partir daí, ${nome} vai passar a ganhar ${(novoSal.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}))}.</p>`
+
+        }
+    </script>
+</body>
+</html>

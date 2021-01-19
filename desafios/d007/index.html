@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor R$ -> US$</title>
+    <style>
+        body {
+            font: 12pt Arial;
+        }
+        button {
+            font-size: 12pt;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var cot = Number(window.prompt('Antes de mais nada. Quanto está a cotação do dólar agora?'))
+    </script>
+
+    <h1>Conversor R$ &rarr; US$</h1>
+
+    <button onclick="clicar()">
+        Converter
+    </button>
+
+    <section id="resultado">
+        <p>Clique no botão acima para iniciar.</p>
+    </section>
+
+    <script>
+        function clicar() {
+            var reais = Number(window.prompt('Quantos R$ você tem na carteira?'))
+
+            var res = document.getElementById('resultado')
+
+            res.innerHTML = `<p>${(reais/cot).toLocaleString('en', {style: 'currency', currency: 'USD'})}</p>`
+        }
+    </script>
+</body>
+</html>
